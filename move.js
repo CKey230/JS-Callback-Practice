@@ -13,7 +13,8 @@ function move(element) {
 
         element.style.left = x + 'px'
         element.style.bottom = y + 'px'
-        
+
+        /*Direction variable*/
         function moveCharacter(){ 
             if(direction === 'west'){
                 x-=1
@@ -32,7 +33,7 @@ function move(element) {
         }
         
         setInterval(moveCharacter, 1)
-        
+        /*Setting direction change with arrow keys*/
         document.addEventListener('keydown', function(e){
             if(e.repeat) return;
         
@@ -48,9 +49,9 @@ function move(element) {
             if(e.key === 'ArrowDown'){
                 direction = 'south'
             }
-            callback(direction)
+            callback(direction)/*Call back to handleDirectionChange*/
         })
-        
+        /*Changes direction for arrow keys*/
         document.addEventListener('keyup', function(e){
             direction = null
             callback(direction)
